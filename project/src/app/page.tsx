@@ -5,14 +5,15 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 
 export default async function Home() {
-  const { data, error } = await supabase
-  .from('notes')
-  .select()
+  const { error } = await supabase
+    .from('notes')
+    .insert({ title: 'test3' })
 
-  console.log(data);
+  console.log(error);
   return (
     <main>
-       <pre>{JSON.stringify(data, null, 2)}</pre>
+      <div>test</div>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </main>
   );
 }
